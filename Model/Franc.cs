@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Klasa reprezentująca Frank Szwajcarski
+    /// </summary>
     public class Franc : Money
     {
         public Franc(int amount, string currency) : base(amount, currency)
