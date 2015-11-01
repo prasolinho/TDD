@@ -6,21 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Klasa reprezentująca dolar amerykański.
+    /// </summary>
     public class Dollar : Money
     {
         public Dollar(int amount, string currency) : base(amount, currency)
         {
 
-        }
-
-        public override Money Times(int multiplier)
-        {
-            return Money.Dollar(amount * multiplier);
-        }
-
-        public override string Currency()
-        {
-            return "USD";
         }
     }
 }

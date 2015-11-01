@@ -15,16 +15,5 @@ namespace Model
         {
             
         }
-
-        public override Money Times(int multiplier)
-        {
-            //return new Money(amount * multiplier, currency);
-            return Money.Franc(amount * multiplier);
-        }
-
-        public override string Currency()
-        {
-            return "CHF";
-        }
     }
 }

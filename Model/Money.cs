@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public abstract class Money
+    public class Money
     {
         protected int amount;
         protected string currency;
-
-        public abstract Money Times(int multiplier);
-        public abstract string Currency();
 
         public Money(int amount, string currency)
         {
@@ -30,15 +27,30 @@ namespace Model
             return new Franc(amount, "CHF");
         }
 
+        public Money Times(int multiplier)
+        {
+            return new Money(amount * multiplier, currency);
+        }
+
+        public string Currency()
+        {
+            return currency;
+        }
+
         public override bool Equals(object obj)
         {
             Money money = (Money)obj;
-            return amount == money.amount && GetType().Equals(obj.GetType());
+            return amount == money.amount && Currency().Equals(money.Currency());
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1}", amount, currency);
         }
     }
 }
