@@ -33,5 +33,19 @@ namespace Testy
             Assert.AreEqual("USD", Money.Dollar(1).Currency());
             Assert.AreEqual("CHF", Money.Franc(1).Currency());
         }
+
+        [Test]
+        public void testSimpleAddition()
+        {
+            Money sum = Money.Dollar(5).Plus(Money.Dollar(6));
+            Assert.AreEqual(Money.Dollar(11), sum);
+        }
+
+        [Test]
+        public void testDifferentCurrenciesAddiotion()
+        {
+            Money sum = Money.Dollar(5).Plus(Money.Franc(10));
+            Assert.AreEqual(Money.Dollar(10), sum); 
+        }
     }
 }
